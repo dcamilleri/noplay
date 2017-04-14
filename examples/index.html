@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tests</title>
+
+  <style>
+    button, video, iframe {
+      margin: 30px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lazyload a video -->
+  <button id="lazyload">Lazyload a new video</button>
+
+  <!-- Video set to autoplay -->
+  <video id="autoplay" src="./video.mp4" autoplay></video>
+
+  <!-- Iframe with youtube video set to autoplay=1 -->
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/wZZ7oFKsKzY?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  
+  <script>
+    document.querySelector('#lazyload').addEventListener('click', lazyloadVideo)
+
+    function lazyloadVideo () {
+      const video = document.createElement('video')
+      video.setAttribute('src', './video.mp4')
+      video.setAttribute('autoplay', true)
+      video.setAttribute('id', 'lazyloaded')
+      document.body.appendChild(video)
+    }
+
+    // Directly trying to play the video
+    document.querySelector('#autoplay').play()
+
+    // Adding the autoplay attribute on the fly
+    setTimeout(function () {
+      document.querySelector('#autoplay').setAttribute('autoplay', true)
+    }, 2000)
+
+    // Lazyloading a video
+    setTimeout(lazyloadVideo, 1000)
+  </script>
+</body>
+</html>

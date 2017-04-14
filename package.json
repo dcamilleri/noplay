@@ -1,0 +1,15 @@
+{
+  "name": "noplay",
+  "version": "0.0.0",
+  "description": "Video auto play blocked for good",
+  "main": "index.js",
+  "repository": "https://github.com/dcamilleri/noplay.git",
+  "author": "Dorian CAMILLERI <dorian@dcamilleri.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard --fix"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  }
+}
