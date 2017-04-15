@@ -1,6 +1,6 @@
 {
   "name": "noplay",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Video auto play blocked for good",
   "main": "index.js",
   "repository": "https://github.com/dcamilleri/noplay.git",
