@@ -14,7 +14,8 @@
 <body>
 
   <!-- Lazyload a video -->
-  <button id="lazyload">Lazyload a new video</button>
+  <button id="lazyload-video">Lazyload an autoplay video</button>
+  <button id="lazyload-iframe">Lazyload an autoplay iframe</button>
 
   <!-- Video set to autoplay -->
   <video id="autoplay" src="./video.mp4" autoplay></video>
@@ -23,14 +24,22 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/wZZ7oFKsKzY?autoplay=1" frameborder="0" allowfullscreen></iframe>
   
   <script>
-    document.querySelector('#lazyload').addEventListener('click', lazyloadVideo)
+    document.querySelector('#lazyload-video').addEventListener('click', lazyloadVideo)
+    document.querySelector('#lazyload-iframe').addEventListener('click', lazyloadIframe)
 
     function lazyloadVideo () {
       const video = document.createElement('video')
       video.setAttribute('src', './video.mp4')
       video.setAttribute('autoplay', true)
-      video.setAttribute('id', 'lazyloaded')
       document.body.appendChild(video)
+    }
+
+    function lazyloadIframe () {
+      const iframe = document.createElement('iframe')
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/wZZ7oFKsKzY?autoplay=1')
+      iframe.setAttribute('width', 560)
+      iframe.setAttribute('height', 315)
+      document.body.appendChild(iframe)
     }
 
     // Directly trying to play the video
