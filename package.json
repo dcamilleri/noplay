@@ -1,7 +1,7 @@
 {
   "name": "noplay",
-  "version": "0.0.1",
-  "description": "Video auto play blocked for good",
+  "version": "0.0.2",
+  "description": "Video autoplay blocked for good",
   "main": "index.js",
   "repository": "https://github.com/dcamilleri/noplay.git",
   "author": "Dorian CAMILLERI <dorian@dcamilleri.com>",

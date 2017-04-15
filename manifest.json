@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimum_chrome_version": "22.0",
 
   "name": "Noplay",
   "short_name": "Noplay",
-  "description": "Video auto play blocked for good",
+  "description": "Video autoplay blocked for good",
   "author": "Dorian Camilleri",
   "homepage_url": "https://github.com/dcamilleri/noplay",
 

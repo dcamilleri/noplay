@@ -1,6 +1,6 @@
 # [![emitta](/images/tile.jpg)](https://github.com/dcamilleri/noplay)
 
-> 🛑 Video auto play blocked, for good (Chrome Extension)
+> 🛑 Video autoplay blocked, for good (Chrome Extension)
 
 `noplay` is a Google Chrome extension. It aims to **disable** the autoplaying behavior of videos on your favorite websites.
 
@@ -10,7 +10,9 @@
 
 `noplay` also deletes the `autoplay=1` query string in the Youtube `iframe` videos.
 
-⚠️ `noplay` tweaks `video` and `iframe` tags, but cannot prevent videos from being played programmatically. Your thoughts and ideas are welcome! Submit an issue [here](https://github.com/dcamilleri/noplay/issues)
+⚠️ `noplay` tweaks `video` and `iframe` tags, but cannot prevent videos from being played programmatically. 
+
+👋 Your thoughts and ideas are welcome! Submit an issue [here](https://github.com/dcamilleri/noplay/issues)
 
 ## What about Facebook or Twitter ?
 
