@@ -21,7 +21,7 @@
   <video id="autoplay" src="./video.mp4" autoplay></video>
 
   <!-- Iframe with youtube video set to autoplay=1 -->
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/wZZ7oFKsKzY?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  <iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/wZZ7oFKsKzY?autoplay=1" frameborder="0" allowfullscreen></iframe>
   
   <script>
     document.querySelector('#lazyload-video').addEventListener('click', lazyloadVideo)
@@ -42,12 +42,10 @@
       document.body.appendChild(iframe)
     }
 
-    // Directly trying to play the video
-    document.querySelector('#autoplay').play()
-
-    // Adding the autoplay attribute on the fly
+    // Adding the Youtube autoplay attribute on the fly
     setTimeout(function () {
-      document.querySelector('#autoplay').setAttribute('autoplay', true)
+      var iframe = document.querySelector('#youtube')
+      iframe.src = iframe.src + 'autoplay=1'
     }, 2000)
 
     // Lazyloading a video

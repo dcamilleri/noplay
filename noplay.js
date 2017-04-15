@@ -23,7 +23,9 @@ function removeYoutubeAutoplay () {
     var iframe = youtubeIframes[i]
     var iframeSrc = iframe.src
 
-    iframe.src = iframeSrc.replace('autoplay=1', '')
+    if (iframeSrc.match(/autoplay=1/)) {
+      iframe.src = iframeSrc.replace('autoplay=1', '')
+    }
   }
 }
 
@@ -44,7 +46,7 @@ function pauseAllPlayingItems () {
  * - Registers a MutationObserver (ie DOM Node observer)
  *  It will detect new video and audio nodes added to the DOM (lazyloading)
  *  And automatically remove their autoplay attribute
- *  It will also prevent adding the autoplay attribute on the fly
+ *  It will also prevent adding the Youtube autoplay=1 attribute on the fly
  * - Implements a fallback for older browsers (<IE11)
  */
 function registerObserver () {
@@ -55,6 +57,15 @@ function registerObserver () {
   var addedNodesObserver = new window.MutationObserver(function (mutations) {
     for (var i = 0; i < mutations.length; i++) {
       var mutation = mutations[i]
+
+      // Prevent adding autoplay on the fly
+      if (mutation.attributeName === 'src' &&
+        mutation.target &&
+        mutation.target.tagName.match(/IFRAME/) &&
+        mutation.target.src.match(/autoplay=1/)) {
+        mutation.target.src = mutation.target.src.replace('autoplay=1', '')
+      }
+
       if (!mutation.addedNodes) {
         continue
       }
@@ -81,7 +92,7 @@ function registerObserver () {
 
   addedNodesObserver.observe(document.body, {
     childList: true,
-    attributes: false,
+    attributes: true,
     characterData: false,
     subtree: true
   })
