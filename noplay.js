@@ -51,10 +51,13 @@ function pauseAllPlayingItems () {
  */
 function registerObserver () {
   if (typeof window.MutationObserver !== 'function') {
-    return window.setInterval(removeVideoAutoPlay, 200)
+    return window.setInterval(function () {
+      removeVideoAutoPlay()
+      removeYoutubeAutoplay()
+    }, 200)
   }
 
-  var addedNodesObserver = new window.MutationObserver(function (mutations) {
+  var observer = new window.MutationObserver(function (mutations) {
     for (var i = 0; i < mutations.length; i++) {
       var mutation = mutations[i]
 
@@ -90,7 +93,7 @@ function registerObserver () {
     }
   })
 
-  addedNodesObserver.observe(document.body, {
+  observer.observe(document.body, {
     childList: true,
     attributes: true,
     characterData: false,
